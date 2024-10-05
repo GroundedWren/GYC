@@ -9,6 +9,7 @@
 	<link href="Styles/variables.css" rel="stylesheet" type="text/css">
 	<link href="Styles/main.css" rel="stylesheet" type="text/css">
 	<script src="Scripts/SVGIconControl.js"></script>
+	<script src="Scripts/FooterControl.js"></script>
 
 	<script>
 		window.GW = window.GW || {};
@@ -221,13 +222,6 @@
 				height: 100px !important;
 			}
 		}
-
-		footer {
-			margin-block-start: 10px;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		}
 	</style>
 </head>
 <body>
@@ -263,14 +257,7 @@
 		<gw-icon iconKey="person-digging"></gw-icon>
 		<span>WIP</span>
 	</main>
-	<footer>
-		<div>
-			World building by Cryo<br>Web design by Vera
-		</div>
-		<div>
-			Created in October 2024
-		</div>
-	</footer>
+	<gw-footer date="October 2024"></gw-footer>
 	<aside id="asiAIChat" aria-labelledby="icoAIChatHdr" class="hidden">
 		<sec id="secAIChatHeader">
 			<gw-icon id="icoAIChatHdr" iconKey="wand-sparkles" name="AI Chat"></gw-icon>
