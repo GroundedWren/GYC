@@ -333,3 +333,23 @@ nav.breadcrumb {
 		content: ".";
 	}
 }
+
+.logo {
+	display: grid;
+	grid-template-rows: auto auto;
+
+	img {
+		margin-inline: 10px;
+	}
+
+	a.skip {
+		position: absolute !important;
+	}
+}
+
+header.standard {
+	background-color: var(--accent-color-2);
+	border-block-end: 3px solid var(--accent-color);
+	margin-block-end: 10px;
+	padding-block: 2px;
+}

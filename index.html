@@ -90,10 +90,6 @@
 			align-items: center;
 			justify-items: center;
 
-			background-color: var(--accent-color-2);
-			border-block-end: 3px solid var(--accent-color);
-			margin-block-end: 10px;
-
 			#quickLinks {
 				display: flex;
 				flex-wrap: wrap;
@@ -149,18 +145,27 @@
 			padding: 5px;
 			background-color: var(--ai-color);
 			width: 310px;
+			border: 4px solid var(--ai-color-2);
 
-			#btnAIClose {
+			#secAIChatHeader {
 				order: 1;
-				align-self: flex-end;
 				display: flex;
-				align-items: center;
-				justify-content: center;
-				padding: 0;
-				gw-icon {
-					width: 26px !important;
-					height: 26px !important;
-				}
+				justify-content: space-between;
+				background-color: var(--ai-color-2);
+				padding-inline: 4px;
+				padding-block-end: 4px;
+				margin: -5px;
+
+				#btnAIClose {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					padding: 0;
+					gw-icon {
+						width: 26px !important;
+						height: 26px !important;
+					}
+			}
 			}
 			#divAIChatScroll {
 				max-height: 400px;
@@ -188,7 +193,7 @@
 
 					&.ai {
 						align-self: start;
-						background-color: var(--ai-message-color);
+						background-color: var(--ai-color-2);
 					}
 
 					&.user {
@@ -229,7 +234,7 @@
 	<aside id="asiAIBanner">
 		<span>Got a question? Chat with our <a id="aAIChat" href="javascript:void(0)" onclick="GW.Pages.Index.openAIChat()">AI servant</a><gw-icon iconKey="wand-sparkles"></gw-icon> today!</span>
 	</aside>
-	<header>
+	<header class="standard">
 		<div>
 			<a class="hide-until-focus full" href="#main">Skip to content</a>
 		</div>
@@ -266,7 +271,13 @@
 			Created in October 2024
 		</div>
 	</footer>
-	<aside id="asiAIChat" aria-label="AI Chat" class="hidden">
+	<aside id="asiAIChat" aria-labelledby="icoAIChatHdr" class="hidden">
+		<sec id="secAIChatHeader">
+			<gw-icon id="icoAIChatHdr" iconKey="wand-sparkles" name="AI Chat"></gw-icon>
+			<button id="btnAIClose" onclick="GW.Pages.Index.closeAIChat()">
+				<gw-icon iconKey="xmark" name="close"></gw-icon>
+			</button>
+		</sec>
 		<form onsubmit="GW.Pages.Index.onAIChat(event)">
 			<label>
 				<gw-icon iconKey="comments"></gw-icon>
@@ -274,7 +285,6 @@
 			</label>
 			<button type="submit"><gw-icon iconKey="fire"></gw-icon></button>
 		</form>
-		<button id="btnAIClose" onclick="GW.Pages.Index.closeAIChat()"><gw-icon iconKey="xmark" name="close"></gw-icon></button>
 		<div id="divAIChatScroll" tabindex="0">
 			<ol id="olAIMessages" aria-live="polite"></ol>
 		</div>
