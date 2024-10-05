@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Page not found">
+	<title>404</title>
+	
+	<link href="https://gyc.groundedwren.com/Styles/variables.css" rel="stylesheet" type="text/css">
+	<link href="https://gyc.groundedwren.com/Styles/main.css" rel="stylesheet" type="text/css">
+	<script src="https://gyc.groundedwren.com/Scripts/SVGIconControl.js"></script>
+
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+		}
+
+		header {
+			display: grid;
+			grid-template-columns: auto 100px 1fr 100px;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+		}
+
+		main {
+			flex-grow: 1;
+		}
+		.auth-fail {
+			background-color: var(--warn-color);
+			display: grid;
+			grid-template-rows: 200px auto auto;
+			justify-content: center;
+			text-align: center;
+			gap: 5px;
+
+			gw-icon svg {
+				width: 200px !important;
+				height: 200px !important;
+			}
+
+			strong {
+				font-size: 5em;
+			}
+
+			em {
+				font-size: 1.5em;
+			}
+		}
+		footer {
+			margin-block-start: 10px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div><a class="hide-until-focus full" href="#main">Skip to content</a></div>
+		<a href="https://gyc.groundedwren.com/index.html"><img id="imgHeaderLogo" role="heading" aria-level="1" alt="GYC" src="https://gyc.groundedwren.com/Img/GYC_LOGO.png" width="100" height="100"></a>
+		<h1>404</h1>
+		<div></div>
+	</header>
+	<main id="main">
+		<div class="auth-fail">
+			<gw-icon iconKey="eye-slash"></gw-icon>
+			<strong>ACCESS DENIED</strong>
+			<em>Your actions have been reported. A Marut has been dispatched to your location. Do not resist.</em>
+		</div>
+	</main>
+	<footer>
+		<div>
+			World building by Cryo<br>Web design by Vera
+		</div>
+		<div>
+			Created in October 2024
+		</div>
+	</footer>
+</body>
+</html>

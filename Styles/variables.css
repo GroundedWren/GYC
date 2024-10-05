@@ -1,0 +1,58 @@
+:root {
+	--background-color: #cc9861;
+	--background-color-2: #E3E3E3;
+	--text-color: #000000;
+	--border-color: #000000;
+	--selected-color: #90CBDB;
+	--button-face-color: #C8C8C8;
+	--button-text-color: #000000;
+	--input-text-color: #000000;
+	--input-background-color: #FFFFFF;
+	--link-color: #0000EE;
+	--link-background-color: #BDE0F2;
+	--focus-color: #FF0701;
+	--icon-color: #000000;
+	--banner-color: #B3B3B3;
+	--mark-color: #D2FCC5;
+	--accent-color: #bb0000;
+	--accent-color-2: #ffbe7a;
+	--invalid-color: #5C01D8;
+
+	--document-color: #f2b473;
+	--section-color: #FFFFFF;
+	--warn-color: #EDC200;
+	--positive-color: #3FD95E;
+	--conf-tier-1-color: #bb0000;
+	--conf-tier-1-txt-color: #FFFFFF;
+	--ai-color: #ceabdc;
+	--ai-message-color: #b783cb;
+	
+	input {
+		color-scheme: light;
+	}
+}
+
+@font-face {
+	font-family: GreatVibes;
+	src: url(../Fonts/GreatVibes.ttf);
+}
+
+@font-face {
+	font-family: HomemadeApple;
+	src: url(../Fonts/HomemadeApple.ttf);
+}
+
+@font-face {
+	font-family: Pacifico;
+	src: url(../Fonts/Pacifico.ttf);
+}
+
+@font-face {
+	font-family: PinyonScript;
+	src: url(../Fonts/PinyonScript.ttf);
+}
+
+@font-face {
+	font-family: Anaheim;
+	src: url(../Fonts/Anaheim.ttf);
+}

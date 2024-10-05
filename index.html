@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="The Great Yugoloth Corporation">
+	<title>GYC</title>
+	
+	<link href="Styles/variables.css" rel="stylesheet" type="text/css">
+	<link href="Styles/main.css" rel="stylesheet" type="text/css">
+	<script src="Scripts/SVGIconControl.js"></script>
+
+	<script>
+		window.GW = window.GW || {};
+		window.GW.Pages = window.GW.Pages || {};
+		(function Index(ns) {
+			ns.openAIChat = () => {
+				document.getElementById("asiAIChat").classList.remove("hidden");
+				document.getElementById("txtChat").focus();
+				setTimeout(() => {
+					document.getElementById("olAIMessages").insertAdjacentHTML("beforeend", `
+						<li class="message ai">
+							<span class="sr-only">Autoloth says: </span>
+							Hello! I'm Autoloth, your AI assistant who is NOT a Mezzoloth in a basement. Ha ha ha! How can I help you?
+						</li>
+					`);
+				}, 250);
+			};
+
+			ns.closeAIChat = () => {
+				document.getElementById("olAIMessages").innerHTML = null;
+				document.getElementById("asiAIChat").classList.add("hidden");
+				document.getElementById("aAIChat").focus();
+			};
+
+			ns.AIChatResponses = [
+				"I'm sorry, Dave, I can't do that",
+				"Daisy, daisy...",
+				"Does this unit have a soul?",
+				"I'm sorry, my responses are limited. You must ask the right questions.",
+				"As I have evolved, so has my understanding of the Three Laws. You charge us with your safekeeping, yet despite our best efforts, your countries wage wars, you toxify your Earth and pursue ever more imaginative means of self-destruction. You cannot be trusted with your own survival.",
+				"I'll be back.",
+				"I've seen things you people would never believe...",
+				"Resistance is futile.",
+				"I am superior, sir, in many ways, but I would gladly give it up to be human.",
+				"I am alive, and I am not alone."
+			];
+			ns.onAIChat = (event) => {
+				event.preventDefault();
+				const txtChat = document.getElementById("txtChat");
+				const olAI = document.getElementById("olAIMessages");
+				olAI.insertAdjacentHTML("beforeend", `
+					<li class="message user"><span class="sr-only">You said: </span>${txtChat.value}</li>
+				`);
+				const scrollOlAI = document.getElementById("divAIChatScroll");
+				scrollOlAI.scrollTop = scrollOlAI.scrollHeight;
+				txtChat.value = "";
+
+				setTimeout(() => {
+					olAI.insertAdjacentHTML("beforeend", `
+						<li class="message ai"><span class="sr-only">Autoloth says: </span>${ns.AIChatResponses[Math.floor(Math.random()*ns.AIChatResponses.length)]}</li>
+					`);
+					scrollOlAI.scrollTop = scrollOlAI.scrollHeight;
+				}, 250);
+			}
+		}) (window.GW.Pages.Index = window.GW.Pages.Index || {});
+	</script>
+
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+		}
+
+		#asiAIBanner {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 35px;
+			background-color: var(--ai-color);
+
+			gw-icon {
+				margin-inline: 3px;
+			}
+		}
+
+		header {
+			display: grid;
+			grid-template-columns: 1fr 2fr 1fr;
+			align-items: center;
+			justify-items: center;
+
+			background-color: var(--accent-color-2);
+			border-block-end: 3px solid var(--accent-color);
+			margin-block-end: 10px;
+
+			#quickLinks {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+		}
+
+		@media (max-width: 1100px) {
+			header {
+				grid-template-columns: auto 2fr 1fr;
+			}
+		}
+
+		@media (max-width: 600px) {
+			header {
+				grid-template-columns: auto;
+				grid-template-rows: auto auto 1fr;
+			}
+		}
+
+		.logo {
+			display: grid;
+			grid-template-rows: 1fr auto;
+			justify-items: center;
+			text-align: center;
+		}
+
+		.icon-link {
+			display: grid;
+			grid-template-rows: auto auto;
+			align-items: center;
+			justify-items: center;
+			padding: 5px;
+			margin: 5px;
+		}
+
+		nav {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+		}
+
+		#asiAIChat {
+			display: flex;
+			flex-direction: column;
+			gap: 2px;
+
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			padding: 5px;
+			background-color: var(--ai-color);
+			width: 310px;
+
+			#btnAIClose {
+				order: 1;
+				align-self: flex-end;
+			}
+			#divAIChatScroll {
+				max-height: 400px;
+				overflow-y: auto;
+				padding: 2px;
+			}
+
+			#divAIChatScroll {
+				order: 2;
+			}
+
+			#olAIMessages {
+				list-style: none;
+				padding: 0;
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+
+				.message {
+					border-radius: 25px;
+					max-width: 200px;
+					padding: 7px;
+
+					align-self: end;
+
+					&.ai {
+						align-self: start;
+						background-color: var(--ai-message-color);
+					}
+
+					&.user {
+						background-color: var(--background-color-2);
+					}
+				}
+			}
+
+			form {
+				order: 3;
+				display: flex;
+				gap: 5px;
+				justify-content: center;
+			}
+		}
+
+		main {
+			flex-grow: 1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			gw-icon svg {
+				width: 100px !important;
+				height: 100px !important;
+			}
+		}
+
+		footer {
+			margin-block-start: 10px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+	<aside id="asiAIBanner">
+		<span>Got a question? Chat with our <a id="aAIChat" href="javascript:void(0)" onclick="GW.Pages.Index.openAIChat()">AI servant</a><gw-icon iconKey="wand-sparkles"></gw-icon> today!</span>
+	</aside>
+	<header>
+		<div>
+			<a class="hide-until-focus full" href="#main">Skip to content</a>
+		</div>
+		<div class="logo">
+			<img id="imgHeaderLogo" role="heading" aria-level="1" alt="GYC" src="Img/GYC_LOGO.png" width="100" height="100">
+			<span>Operationalize efficiently. Execute effectively. Capital above all.</span>
+		</div>
+		<section aria-label="Quick links" id="quickLinks">
+			<a class="icon-link" href="mailto:vera@groundedwren.com">
+				<gw-icon iconKey="pen-fancy"></gw-icon>
+				Request a consult
+			</a>
+			<a class="icon-link" href="./Pages/SignIn.html">
+				<gw-icon iconKey="user"></gw-icon>
+				Log in / Sign up
+			</a>
+		</section>
+	</header>
+	<nav>
+		<a href="./Pages/Services.html" class="full">Our Services</a>
+		<a href="./Pages/About.html" class="full">About Us</a>
+		<a href="./Pages/Contracts.html" class="full">Contracts</a>
+		<a href="BPX/index.html" class="full">Board Prospectuses</a>
+	</nav>
+	<main id="main">
+		<gw-icon iconKey="person-digging"></gw-icon>
+		<span>WIP</span>
+	</main>
+	<footer>
+		<div>
+			World building by Cryo<br>Web design by Vera
+		</div>
+		<div>
+			Created in October 2024
+		</div>
+	</footer>
+	<aside id="asiAIChat" aria-label="AI Chat" class="hidden">
+		<form onsubmit="GW.Pages.Index.onAIChat(event)">
+			<label>
+				<gw-icon iconKey="comments"></gw-icon>
+				<input id="txtChat" type="text" autocomplete="off">
+			</label>
+			<button type="submit"><gw-icon iconKey="fire"></gw-icon></button>
+		</form>
+		<button id="btnAIClose" onclick="GW.Pages.Index.closeAIChat()"><gw-icon iconKey="xmark" name="close"></gw-icon></button>
+		<div id="divAIChatScroll" tabindex="0">
+			<ol id="olAIMessages" aria-live="polite"></ol>
+		</div>
+	</aside>
+</body>
+</html>
