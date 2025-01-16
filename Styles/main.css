@@ -65,13 +65,16 @@ a {
 	display: none !important;
 }
 
-:focus-visible, *[tabindex="-1"]:focus {
+label:has(> :focus-visible), *:not(label) > :focus-visible, *[tabindex="-1"]:focus {
 	outline-width: 4px !important;
 	outline-color: var(--focus-color) !important;
 	outline-style: solid !important;
 	outline-offset: 1px !important;
 	position: relative !important;
 	z-index: 100 !important;
+}
+label > :focus-visible {
+	outline: none !important;
 }
 
 *[tabindex="-1"]:focus {
